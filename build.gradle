@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "http://47.92.30.216:8081/repository/maven-public/" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.applet'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	maven { url "http://47.92.30.216:8081/repository/maven-public/" }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot:2.0.4.RELEASE')
+	compile('org.springframework.boot:spring-boot-autoconfigure:2.0.4.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa:2.0.4.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-data-redis:2.0.4.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework:spring-web:5.0.8.RELEASE')
+	compile('io.springfox:springfox-swagger2:2.7.0')
+	compile('io.springfox:springfox-swagger-ui:2.7.0')
+	compile('com.alex.commons:common-mini:1.0')
+	compile('com.alex.commons:common-biz:1.0')
+	compile('com.alex.commons:common-jpa:1.0')
+    compile('org.projectlombok:lombok:1.16.20')
+	compile('mysql:mysql-connector-java:5.1.37')
+	compile('org.hsqldb:hsqldb:2.3.3')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
